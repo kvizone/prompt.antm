@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explique Qualquer Coisa com IA</title>
+    
+    <!-- Fonte Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Configuração do Tema -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#131314',
+                            card: '#1A1A1C',
+                            hover: '#232325',
+                            purple: '#B983FF',
+                            blue: '#4D96FF',
+                            green: '#6BCB77',
+                            yellow: '#FFD93D',
+                            cyan: '#22d3ee',
+                            orange: '#fb923c',
+                            pink: '#f472b6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        ::selection { background-color: rgba(185, 131, 255, 0.3); color: #fff; }
+        /* Estilização sutil de scroll */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #131314; }
+        ::-webkit-scrollbar-thumb { background: #232325; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+    </style>
+</head>
+<body class="bg-brand-bg text-zinc-100 font-sans antialiased min-h-screen">
+
+    <!-- HEADER SIMPLES -->
+    <nav class="w-full border-b border-white/5 bg-brand-bg/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <!-- Logo / Home Link -->
+            <a href="#inicio" class="flex items-center gap-2 font-medium text-sm text-zinc-300 hover:text-white transition-colors">
+                <i data-lucide="sparkles" class="w-4 h-4 text-brand-purple"></i>
+                <span class="font-bold hidden sm:block">Cadê o Briefing?</span>
+            </a>
+            
+            <!-- Links de Navegação (Escondidos em telas muito pequenas) -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
+                <a href="#inicio" class="hover:text-white transition-colors">Início</a>
+                <a href="#estrutura" class="hover:text-white transition-colors">Estrutura</a>
+                <a href="#gerador" class="hover:text-white transition-colors">Gerador de Prompt</a>
+                <a href="#exemplos" class="hover:text-white transition-colors">Exemplos</a>
+            </div>
+
+            <!-- Botão de Contato -->
+            <a href="https://www.linkedin.com/in/karlavizone/" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-brand-purple/10 text-brand-purple hover:bg-brand-purple hover:text-white border border-brand-purple/20 rounded-lg text-sm font-bold transition-all flex items-center gap-2">
+                Contato <i data-lucide="arrow-up-right" class="w-4 h-4 hidden sm:block"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- CONTAINER PRINCIPAL DO CONTEÚDO -->
+    <main id="inicio" class="max-w-4xl mx-auto px-6 py-12 pb-24 scroll-mt-24">
+
+        <!-- TÍTULO DA PÁGINA -->
+        <header class="mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
+                Explique qualquer coisa usando IA
+            </h1>
+            <p class="text-lg font-medium text-zinc-300 leading-relaxed">
+                Crie prompts melhores e economize horas de trabalho com IA.
+            </p>
+        </header>
+
+        <!-- CALLOUT (Estilo Notion com os textos da Imagem 1) -->
+        <div class="bg-[#2A1E38]/40 border border-[#3A2A4E] p-6 sm:p-8 rounded-2xl mb-16 flex gap-4 items-start shadow-lg">
+            <i data-lucide="pin" class="w-5 h-5 text-red-400 flex-shrink-0 mt-1 fill-red-400/20"></i>
+            <div class="space-y-6 text-[15px] leading-relaxed text-zinc-200">
+                <p>
+                    A qualidade da resposta gerada por uma IA depende diretamente da forma como a pergunta é feita. Um bom prompt ajuda a IA a entender contexto, objetivo, formato e profundidade da resposta esperada — reduzindo retrabalho, economizando tempo e aumentando a precisão das informações.
+                </p>
+                <p>
+                    Com instruções mais claras, é possível transformar tarefas complexas em processos rápidos: explicar conteúdos, resumir documentos, criar materiais de estudo, estruturar ideias, gerar textos, automatizar etapas e acelerar fluxos de trabalho no dia a dia.
+                </p>
+                <p>
+                    Este espaço foi criado para te ajudar a construir prompts melhores, mesmo sem experiência técnica, tornando a IA uma ferramenta mais útil, estratégica e eficiente.
+                </p>
+            </div>
+        </div>
+
+        <!-- SEÇÃO: ESTRUTURA UNIVERSAL DO PROMPT -->
+        <section id="estrutura" class="mb-16 scroll-mt-24">
+            <h2 class="text-2xl font-bold text-white mb-2">
+                Estrutura Universal de Prompt
+            </h2>
+            <p class="text-zinc-400 text-[15px] leading-relaxed mb-12">
+                Use esta estrutura para criar prompts mais claros, completos e eficientes.
+            </p>
+
+            <!-- DIAGRAMA CONSTRUÍDO EM HTML/CSS (Baseado na Imagem 2) -->
+            <div class="flex flex-col md:flex-row items-center md:items-stretch gap-6 w-full relative">
+                
+                <!-- Nó Principal (Esquerda) -->
+                <div class="flex flex-col items-center justify-center p-8 rounded-full border border-white/10 bg-[#151517] relative z-10 w-48 h-48 flex-shrink-0 shadow-[0_0_40px_rgba(185,131,255,0.05)] md:my-auto">
+                    <!-- Borda tracejada externa decorativa -->
+                    <div class="absolute inset-2 rounded-full border border-dashed border-white/10 pointer-events-none"></div>
+                    <i data-lucide="sparkles" class="w-7 h-7 text-brand-purple mb-2"></i>
+                    <span class="font-bold text-white text-base tracking-wide">PROMPT</span>
+                    <span class="text-zinc-500 text-xs text-center mt-1">Entrada do<br>usuário</span>
+                </div>
+
+                <!-- Conector Central (Visível apenas no Desktop) -->
+                <div class="hidden md:block w-10 h-px bg-white/10 my-auto"></div>
+
+                <!-- Lista de Nós (Direita) -->
+                <div class="flex flex-col gap-3 w-full relative py-4">
+                    <!-- Linha vertical conectora (Visível apenas no Desktop) -->
+                    <div class="hidden md:block absolute left-[-40px] top-1/2 -translate-y-1/2 w-px h-[88%] bg-white/10"></div>
+
+                    <!-- Item 1: OBJETIVO -->
+                    <div class="flex flex-col sm:flex-row items-center gap-3 relative">
+                        <div class="hidden md:block absolute left-[-40px] w-10 h-px bg-white/10"></div>
+                        <div class="flex items-center gap-3 bg-brand-card border border-white/5 rounded-xl px-4 py-3 w-full sm:w-56 flex-shrink-0">
+                            <i data-lucide="target" class="w-4 h-4 text-brand-purple"></i>
+                            <span class="text-brand-purple text-xs font-bold tracking-wider">OBJETIVO</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-brand-card border border-white/5 rounded-xl px-5 py-3 w-full">
+                            <span class="text-zinc-300 text-sm">Define o que precisa ser feito.</span>
+                            <i data-lucide="target" class="w-5 h-5 text-brand-purple/20 hidden sm:block"></i>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: CONTEXTO -->
+                    <div class="flex flex-col sm:flex-row items-center gap-3 relative">
+                        <div class="hidden md:block absolute left-[-40px] w-10 h-px bg-white/10"></div>
+                        <div class="flex items-center gap-3 bg-brand-card border border-white/5 rounded-xl px-4 py-3 w-full sm:w-56 flex-shrink-0">
+                            <i data-lucide="user" class="w-4 h-4 text-brand-blue"></i>
+                            <span class="text-brand-blue text-xs font-bold tracking-wider">CONTEXTO</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-brand-card border border-white/5 rounded-xl px-5 py-3 w-full">
+                            <span class="text-zinc-300 text-sm">Explica o cenário, público ou situação.</span>
+                            <i data-lucide="user" class="w-5 h-5 text-brand-blue/20 hidden sm:block"></i>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: FORMATO -->
+                    <div class="flex flex-col sm:flex-row items-center gap-3 relative">
+                        <div class="hidden md:block absolute left-[-40px] w-10 h-px bg-white/10"></div>
+                        <div class="flex items-center gap-3 bg-brand-card border border-white/5 rounded-xl px-4 py-3 w-full sm:w-56 flex-shrink-0">
+                            <i data-lucide="list" class="w-4 h-4 text-brand-cyan"></i>
+                            <span class="text-brand-cyan text-xs font-bold tracking-wider">FORMATO</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-brand-card border border-white/5 rounded-xl px-5 py-3 w-full">
+                            <span class="text-zinc-300 text-sm">Indica como a resposta deve ser estruturada.</span>
+                            <i data-lucide="list" class="w-5 h-5 text-brand-cyan/20 hidden sm:block"></i>
+                        </div>
+                    </div>
+
+                    <!-- Item 4: TOM DE VOZ -->
+                    <div class="flex flex-col sm:flex-row items-center gap-3 relative">
+                        <div class="hidden md:block absolute left-[-40px] w-10 h-px bg-white/10"></div>
+                        <div class="flex items-center gap-3 bg-brand-card border border-white/5 rounded-xl px-4 py-3 w-full sm:w-56 flex-shrink-0">
+                            <i data-lucide="message-square" class="w-4 h-4 text-brand-green"></i>
+                            <span class="text-brand-green text-xs font-bold tracking-wider">TOM DE VOZ</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-brand-card border border-white/5 rounded-xl px-5 py-3 w-full">
+                            <span class="text-zinc-300 text-sm">Define o estilo da comunicação.</span>
+                            <i data-lucide="message-square" class="w-5 h-5 text-brand-green/20 hidden sm:block"></i>
+                        </div>
+                    </div>
+
+                    <!-- Item 5: RESTRIÇÕES OU REGRAS -->
+                    <div class="flex flex-col sm:flex-row items-center gap-3 relative">
+                        <div class="hidden md:block absolute left-[-40px] w-10 h-px bg-white/10"></div>
+                        <div class="flex items-center gap-3 bg-brand-card border border-white/5 rounded-xl px-4 py-3 w-full sm:w-56 flex-shrink-0">
+                            <i data-lucide="lock" class="w-4 h-4 text-brand-yellow"></i>
+                            <span class="text-brand-yellow text-xs font-bold tracking-wider">RESTRIÇÕES OU REGRAS</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-brand-card border border-white/5 rounded-xl px-5 py-3 w-full">
+                            <span class="text-zinc-300 text-sm">Limita ou direciona o resultado.</span>
+                            <i data-lucide="lock" class="w-5 h-5 text-brand-yellow/20 hidden sm:block"></i>
+                        </div>
+                    </div>
+
+                    <!-- Item 6: REFERÊNCIAS -->
+                    <div class="flex flex-col sm:flex-row items-center gap-3 relative">
+                        <div class="hidden md:block absolute left-[-40px] w-10 h-px bg-white/10"></div>
+                        <div class="flex items-center gap-3 bg-brand-card border border-white/5 rounded-xl px-4 py-3 w-full sm:w-56 flex-shrink-0">
+                            <i data-lucide="file-text" class="w-4 h-4 text-brand-orange"></i>
+                            <span class="text-brand-orange text-xs font-bold tracking-wider">REFERÊNCIAS</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-brand-card border border-white/5 rounded-xl px-5 py-3 w-full">
+                            <span class="text-zinc-300 text-sm">Adiciona exemplos, inspirações ou padrões esperados.</span>
+                            <i data-lucide="file-text" class="w-5 h-5 text-brand-orange/20 hidden sm:block"></i>
+                        </div>
+                    </div>
+
+                    <!-- Item 7: RESULTADO ESPERADO -->
+                    <div class="flex flex-col sm:flex-row items-center gap-3 relative">
+                        <div class="hidden md:block absolute left-[-40px] w-10 h-px bg-white/10"></div>
+                        <div class="flex items-center gap-3 bg-brand-card border border-white/5 rounded-xl px-4 py-3 w-full sm:w-56 flex-shrink-0">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-pink"></i>
+                            <span class="text-brand-pink text-xs font-bold tracking-wider">RESULTADO ESPERADO</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-brand-card border border-white/5 rounded-xl px-5 py-3 w-full">
+                            <span class="text-zinc-300 text-sm">Alinha a IA ao tipo de entrega e profundidade desejada.</span>
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-brand-pink/20 hidden sm:block"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- DICA (CALLOUT) -->
+        <div class="bg-brand-purple/5 border border-brand-purple/20 p-6 rounded-2xl mb-16 flex gap-4 items-start shadow-lg">
+            <div class="p-2 bg-brand-purple/10 rounded-lg flex-shrink-0 mt-0.5">
+                <i data-lucide="lightbulb" class="w-5 h-5 text-brand-purple"></i>
+            </div>
+            <div class="w-full">
+                <h4 class="text-brand-purple font-semibold text-sm mb-2">Dica de Ouro</h4>
+                <p class="text-zinc-300 text-sm leading-relaxed mb-4">Peça para a IA atuar em um determinado papel para calibrar o conhecimento dela:</p>
+                <div class="space-y-2">
+                    <div class="bg-brand-bg border border-white/5 rounded-lg p-3 text-sm text-zinc-300 font-mono flex items-center gap-2">
+                        <span class="text-brand-purple/50">»</span> ”Atue como designer especialista em ux”
+                    </div>
+                    <div class="bg-brand-bg border border-white/5 rounded-lg p-3 text-sm text-zinc-300 font-mono flex items-center gap-2">
+                        <span class="text-brand-purple/50">»</span> ”Atue como profissional de marketing especialista em lançamentos digitais”
+                    </div>
+                    <div class="bg-brand-bg border border-white/5 rounded-lg p-3 text-sm text-zinc-300 font-mono flex items-center gap-2">
+                        <span class="text-brand-purple/50">»</span> ”Atue como especialista em redação”
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DETALHAMENTO DA ESTRUTURA -->
+        <section class="mb-16 space-y-8">
+            
+            <!-- 1. Objetivo -->
+            <div class="border border-white/5 bg-brand-card rounded-2xl p-6 sm:p-8 hover:border-white/10 transition-colors shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="p-2 bg-brand-purple/10 rounded-lg">
+                        <i data-lucide="target" class="w-5 h-5 text-brand-purple"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">1. Objetivo</h3>
+                </div>
+                <p class="text-zinc-400 text-[15px] mb-8 pb-6 border-b border-white/5">Explique o que precisa ser criado ou resolvido.</p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">O que inserir:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">tarefa principal</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">resultado esperado</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">problema que deseja resolver</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">Exemplo:</h4>
+                        <div class="bg-brand-bg border border-white/5 rounded-xl p-4 text-zinc-300 text-sm italic relative">
+                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-purple rounded-l-xl"></div>
+                            “Criar uma landing page para captar leads.”
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Contexto -->
+            <div class="border border-white/5 bg-brand-card rounded-2xl p-6 sm:p-8 hover:border-white/10 transition-colors shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="p-2 bg-brand-blue/10 rounded-lg">
+                        <i data-lucide="layout" class="w-5 h-5 text-brand-blue"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">2. Contexto</h3>
+                </div>
+                <p class="text-zinc-400 text-[15px] mb-8 pb-6 border-b border-white/5">Descreva o cenário da demanda.</p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">O que inserir:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">empresa ou produto</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">público-alvo</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">situação atual</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">segmento ou nicho</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">Exemplo:</h4>
+                        <div class="bg-brand-bg border border-white/5 rounded-xl p-4 text-zinc-300 text-sm italic relative">
+                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-blue rounded-l-xl"></div>
+                            “A landing page será usada em uma campanha para uma loja virtual.”
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Público -->
+            <div class="border border-white/5 bg-brand-card rounded-2xl p-6 sm:p-8 hover:border-white/10 transition-colors shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="p-2 bg-brand-cyan/10 rounded-lg">
+                        <i data-lucide="users" class="w-5 h-5 text-brand-cyan"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">3. Público</h3>
+                </div>
+                <p class="text-zinc-400 text-[15px] mb-8 pb-6 border-b border-white/5">Explique para quem a solução será criada.</p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">O que inserir:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">perfil do usuário</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">faixa etária</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">dores</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">necessidades</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">nível de conhecimento</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">Exemplo:</h4>
+                        <div class="bg-brand-bg border border-white/5 rounded-xl p-4 text-zinc-300 text-sm italic relative">
+                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-cyan rounded-l-xl"></div>
+                            “Pequenos lojistas que possuem dificuldade em organizar entregas.”
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Formato da Resposta -->
+            <div class="border border-white/5 bg-brand-card rounded-2xl p-6 sm:p-8 hover:border-white/10 transition-colors shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="p-2 bg-brand-green/10 rounded-lg">
+                        <i data-lucide="list" class="w-5 h-5 text-brand-green"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">4. Formato da Resposta</h3>
+                </div>
+                <p class="text-zinc-400 text-[15px] mb-8 pb-6 border-b border-white/5">Defina como deseja receber o resultado.</p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">O que inserir:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">lista</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">tabela</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">roteiro</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">tópicos</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">apresentação</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">checklist</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">código</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">documentação</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">Exemplo:</h4>
+                        <div class="bg-brand-bg border border-white/5 rounded-xl p-4 text-zinc-300 text-sm italic relative">
+                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-green rounded-l-xl"></div>
+                            “Organize em tópicos curtos e objetivos.”
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Tom de Voz -->
+            <div class="border border-white/5 bg-brand-card rounded-2xl p-6 sm:p-8 hover:border-white/10 transition-colors shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="p-2 bg-brand-yellow/10 rounded-lg">
+                        <i data-lucide="message-square" class="w-5 h-5 text-brand-yellow"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">5. Tom de Voz</h3>
+                </div>
+                <p class="text-zinc-400 text-[15px] mb-8 pb-6 border-b border-white/5">Defina o estilo da comunicação.</p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">O que inserir:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">profissional</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">criativo</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">técnico</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">educativo</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">persuasivo</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">casual</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">executivo</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">Exemplo:</h4>
+                        <div class="bg-brand-bg border border-white/5 rounded-xl p-4 text-zinc-300 text-sm italic relative">
+                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-yellow rounded-l-xl"></div>
+                            “Use linguagem moderna e estratégica.”
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Restrições -->
+            <div class="border border-white/5 bg-brand-card rounded-2xl p-6 sm:p-8 hover:border-white/10 transition-colors shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="p-2 bg-brand-orange/10 rounded-lg">
+                        <i data-lucide="lock" class="w-5 h-5 text-brand-orange"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">6. Restrições</h3>
+                </div>
+                <p class="text-zinc-400 text-[15px] mb-8 pb-6 border-b border-white/5">Defina limites ou regras.</p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">O que inserir:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">palavras proibidas</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">limite de caracteres</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">tecnologias específicas</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">evitar termos técnicos</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">foco em acessibilidade</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">evitar clichês</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">Exemplo:</h4>
+                        <div class="bg-brand-bg border border-white/5 rounded-xl p-4 text-zinc-300 text-sm italic relative">
+                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-orange rounded-l-xl"></div>
+                            “Não usar linguagem muito formal.”
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Referências -->
+            <div class="border border-white/5 bg-brand-card rounded-2xl p-6 sm:p-8 hover:border-white/10 transition-colors shadow-sm">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="p-2 bg-brand-pink/10 rounded-lg">
+                        <i data-lucide="file-text" class="w-5 h-5 text-brand-pink"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">7. Referências</h3>
+                </div>
+                <p class="text-zinc-400 text-[15px] mb-8 pb-6 border-b border-white/5">Adicione inspirações ou padrões desejados.</p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">O que inserir:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">marcas</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">estilos</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">concorrentes</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">layouts</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">frameworks</span>
+                            <span class="bg-[#232325] text-zinc-300 text-xs px-3 py-1.5 rounded-md border border-white/5 cursor-default">referências visuais</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-4">Exemplo:</h4>
+                        <div class="bg-brand-bg border border-white/5 rounded-xl p-4 text-zinc-300 text-sm italic relative">
+                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-pink rounded-l-xl"></div>
+                            “Inspirar no estilo do Notion e Linear.”
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- DICA SOBRE ANEXOS (CALLOUT) -->
+        <div class="bg-brand-blue/5 border border-brand-blue/20 p-6 rounded-2xl mb-16 flex gap-4 items-start shadow-lg">
+            <div class="p-2 bg-brand-blue/10 rounded-lg flex-shrink-0 mt-0.5">
+                <i data-lucide="paperclip" class="w-5 h-5 text-brand-blue"></i>
+            </div>
+            <div class="w-full">
+                <h4 class="text-brand-blue font-semibold text-sm mb-2">Dica: Insira anexos para dar mais contexto e precisão</h4>
+                <p class="text-zinc-300 text-sm leading-relaxed">
+                    Inserir imagens e arquivos, ou até mesmo código HTML e JSON, ajudam a IA a entregar um resultado mais assertivo e rico. Conteúdos com "cara de IA" acontecem porque ela não tem referência o suficiente e acaba indo para o que é mais comum.
+                </p>
+            </div>
+        </div>
+
+        <!-- SEÇÃO: COMO A IA ENTENDE ARQUIVOS -->
+        <section class="mb-16">
+            <header class="mb-10 border-b border-white/5 pb-8">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-hover border border-white/5 text-brand-cyan text-xs font-semibold mb-4 uppercase tracking-wider">
+                    <i data-lucide="file-search" class="w-3.5 h-3.5"></i>
+                    Guia Visual
+                </div>
+                <h2 class="text-3xl font-bold text-white mb-3">
+                    Como a IA entende os formatos de arquivo
+                </h2>
+                <p class="text-zinc-400 text-[15px] leading-relaxed">
+                    Entenda o que acontece com cada tipo de arquivo quando você o envia, e como usar isso para obter resultados muito melhores.
+                </p>
+            </header>
+
+            <!-- 1. VISÃO GERAL DO PROCESSO (Fluxograma) -->
+            <div class="mb-12">
+                <h3 class="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-6">Visão Geral do Processo</h3>
+                
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 relative">
+                    <!-- Linha conectora de fundo (Desktop) -->
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-px bg-white/5 -translate-y-1/2 z-0"></div>
+
+                    <!-- Passo 1 -->
+                    <div class="bg-brand-card border border-white/5 rounded-2xl p-5 w-full md:w-1/4 flex flex-col items-center text-center relative z-10 shadow-sm">
+                        <div class="w-12 h-12 bg-brand-purple/10 rounded-full flex items-center justify-center mb-3 text-brand-purple">
+                            <i data-lucide="cloud-upload" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-zinc-100 text-sm font-medium">1. Você envia o arquivo</span>
+                    </div>
+
+                    <i data-lucide="chevron-right" class="w-6 h-6 text-zinc-600 hidden md:block relative z-10"></i>
+                    <i data-lucide="chevron-down" class="w-6 h-6 text-zinc-600 md:hidden"></i>
+
+                    <!-- Passo 2 -->
+                    <div class="bg-brand-card border border-white/5 rounded-2xl p-5 w-full md:w-1/4 flex flex-col items-center text-center relative z-10 shadow-sm">
+                        <div class="w-12 h-12 bg-brand-blue/10 rounded-full flex items-center justify-center mb-3 text-brand-blue">
+                            <i data-lucide="file-search" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-zinc-100 text-sm font-medium">2. A IA extrai as informações</span>
+                    </div>
+
+                    <i data-lucide="chevron-right" class="w-6 h-6 text-zinc-600 hidden md:block relative z-10"></i>
+                    <i data-lucide="chevron-down" class="w-6 h-6 text-zinc-600 md:hidden"></i>
+
+                    <!-- Passo 3 -->
+                    <div class="bg-brand-card border border-white/5 rounded-2xl p-5 w-full md:w-1/4 flex flex-col items-center text-center relative z-10 shadow-sm">
+                        <div class="w-12 h-12 bg-brand-cyan/10 rounded-full flex items-center justify-center mb-3 text-brand-cyan">
+                            <i data-lucide="brain-circuit" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-zinc-100 text-sm font-medium">3. A IA interpreta o conteúdo</span>
+                    </div>
+
+                    <i data-lucide="chevron-right" class="w-6 h-6 text-zinc-600 hidden md:block relative z-10"></i>
+                    <i data-lucide="chevron-down" class="w-6 h-6 text-zinc-600 md:hidden"></i>
+
+                    <!-- Passo 4 -->
+                    <div class="bg-brand-card border border-white/5 rounded-2xl p-5 w-full md:w-1/4 flex flex-col items-center text-center relative z-10 shadow-sm border-b-2 border-b-brand-green">
+                        <div class="w-12 h-12 bg-brand-green/10 rounded-full flex items-center justify-center mb-3 text-brand-green">
+                            <i data-lucide="message-square-check" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-zinc-100 text-sm font-medium">4. A IA gera uma resposta útil</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. GRID DE FORMATOS -->
+            <div class="mb-12">
+                <h3 class="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-6">Tipos de arquivo e como a IA os entende</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    
+                    <!-- Card: Texto -->
+                    <div class="bg-brand-card border border-white/5 rounded-2xl p-6 hover:border-brand-purple/30 transition-colors">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="p-2 bg-brand-purple/10 rounded-lg text-brand-purple">
+                                <i data-lucide="file-text" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-[15px]">Texto</h4>
+                                <span class="text-zinc-500 text-xs">.docx, .txt, .md</span>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-wider block mb-1">Como Processa</span>
+                                <p class="text-zinc-300 text-xs leading-relaxed">Lê o texto diretamente (estrutura, títulos, listas e contexto sem esforço).</p>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-wider mr-2">Qualidade:</span>
+                                <div class="flex text-brand-green"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                            </div>
+                            <div class="bg-[#232325] p-3 rounded-xl border border-white/5">
+                                <span class="text-brand-purple text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 mb-1"><i data-lucide="zap" class="w-3 h-3"></i> Dica</span>
+                                <p class="text-zinc-400 text-xs">Estruture com títulos e tópicos. Inclua exemplos claros.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card: PDF Digital -->
+                    <div class="bg-brand-card border border-white/5 rounded-2xl p-6 hover:border-brand-blue/30 transition-colors">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="p-2 bg-brand-blue/10 rounded-lg text-brand-blue">
+                                <i data-lucide="file-type-2" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-[15px]">PDF</h4>
+                                <span class="text-zinc-500 text-xs">Texto selecionável / Escaneado</span>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-wider block mb-1">Como Processa</span>
+                                <p class="text-zinc-300 text-xs leading-relaxed">Extrai o texto e interpreta a estrutura. Consegue ler tabelas e elementos.</p>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-wider mr-2">Qualidade:</span>
+                                <div class="flex text-brand-yellow"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 text-zinc-600"></i></div>
+                            </div>
+                            <div class="bg-[#232325] p-3 rounded-xl border border-white/5">
+                                <span class="text-brand-blue text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 mb-1"><i data-lucide="alert-triangle" class="w-3 h-3"></i> Cuidado</span>
+                                <p class="text-zinc-400 text-xs">Cuidado com PDFs escaneados. O OCR pode errar palavras e perder a estrutura original.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card: Imagem -->
+                    <div class="bg-brand-card border border-white/5 rounded-2xl p-6 hover:border-brand-cyan/30 transition-colors">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="p-2 bg-brand-cyan/10 rounded-lg text-brand-cyan">
+                                <i data-lucide="image" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-[15px]">Imagem</h4>
+                                <span class="text-zinc-500 text-xs">.jpg, .png, .webp</span>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-wider block mb-1">Como Processa</span>
+                                <p class="text-zinc-300 text-xs leading-relaxed">Analisa visualmente. Usa OCR para textos e compreende elementos e layout.</p>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-wider mr-2">Qualidade:</span>
+                                <div class="flex text-brand-yellow"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 text-zinc-600"></i></div>
+                            </div>
+                            <div class="bg-[#232325] p-3 rounded-xl border border-white/5">
+                                <span class="text-brand-cyan text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 mb-1"><i data-lucide="alert-triangle" class="w-3 h-3"></i> Cuidado</span>
+                                <p class="text-zinc-400 text-xs">Textos pequenos podem ser lidos com erro. Envie imagens nítidas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card: Planilhas -->
+                    <div class="bg-brand-card border border-white/5 rounded-2xl p-6 hover:border-brand-green/30 transition-colors">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="p-2 bg-brand-green/10 rounded-lg text-brand-green">
+                                <i data-lucide="table" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-[15px]">Planilhas</h4>
+                                <span class="text-zinc-500 text-xs">.xlsx, .csv</span>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div>
+                                <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-wider block mb-1">Como Processa</span>
+                                <p class="text-zinc-300 text-xs leading-relaxed">Lê como tabela estruturada. Entende colunas, linhas, valores e padrões.</p>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-wider mr-2">Qualidade:</span>
+                                <div class="flex text-brand-green"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                            </div>
+                            <div class="bg-[#232325] p-3 rounded-xl border border-white/5">
+                                <span class="text-brand-green text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 mb-1"><i data-lucide="zap" class="w-3 h-3"></i> Dica</span>
+                                <p class="text-zinc-400 text-xs">Nomeie as colunas claramente. Explique o objetivo dos dados no prompt.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card: Código -->
+                    <div class="bg-brand-card border border-white/5 rounded-2xl p-6 hover:border-zinc-300/30 transition-colors md:col-span-2 lg:col-span-2 border-l-4 border-l-zinc-300">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="p-2 bg-zinc-100/10 rounded-lg text-zinc-100">
+                                <i data-lucide="code-2" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-[15px]">Código</h4>
+                                <span class="text-zinc-500 text-xs">.html, .js, .py, .json, .css</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div>
+                                    <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-wider block mb-1">Como Processa</span>
+                                    <p class="text-zinc-300 text-xs leading-relaxed">Lê linha por linha. Entende sintaxe, lógica, padrões, variáveis e intenção geral do código.</p>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <span class="text-zinc-500 text-[10px] font-bold uppercase tracking-wider mr-2">Qualidade:</span>
+                                    <div class="flex text-brand-green"><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i><i data-lucide="star" class="w-3 h-3 fill-current"></i></div>
+                                </div>
+                            </div>
+                            <div class="bg-[#232325] p-4 rounded-xl border border-white/5 flex flex-col justify-center">
+                                <span class="text-zinc-100 text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 mb-2"><i data-lucide="crosshair" class="w-3 h-3"></i> Para melhores resultados</span>
+                                <ul class="text-zinc-400 text-xs space-y-1 list-disc pl-4">
+                                    <li>Envie o contexto do projeto.</li>
+                                    <li>Para trechos longos, foque em partes específicas.</li>
+                                    <li>Explique o que o código deveria fazer (objetivo).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- GERADOR DE PROMPT INTERATIVO -->
+        <section id="gerador" class="mt-20 mb-20 scroll-mt-24">
+            <header class="mb-10 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-hover border border-white/5 text-brand-purple text-xs font-semibold mb-4 uppercase tracking-wider">
+                    <i data-lucide="wand-2" class="w-3.5 h-3.5"></i>
+                    Ferramenta Interativa
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Gerador de Prompts
+                </h2>
+                <p class="text-zinc-400 text-base md:text-[17px] leading-relaxed max-w-2xl">
+                    Construa prompts perfeitos focados em design instrucional. Preencha os campos e veja a estrutura ser montada em tempo real para copiar e colar na IA.
+                </p>
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 items-stretch">
+                
+                <!-- COLUNA ESQUERDA: CONFIGURAÇÃO -->
+                <div class="bg-brand-card border border-white/5 rounded-[2rem] p-6 md:p-8 shadow-lg flex flex-col">
+                    <div class="flex items-center gap-3 mb-8 pb-6 border-b border-white/5">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-brand-purple/10 text-brand-purple font-bold text-sm">1</span>
+                        <h3 class="text-xl font-bold text-white">Defina os parâmetros</h3>
+                    </div>
+
+                    <div class="space-y-5 flex-1">
+                        <!-- Input Select: Tipo de Tarefa -->
+                        <div>
+                            <label for="taskType" class="block text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2 ml-1">O que a IA deve criar?</label>
+                            <div class="relative">
+                                <select id="taskType" class="w-full bg-brand-bg border border-white/10 rounded-xl p-3.5 text-zinc-100 appearance-none focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all text-sm cursor-pointer" onchange="generatePrompt()">
+                                    <option value="content">Conteúdo educativo (Quero ensinar algo)</option>
+                                    <option value="quiz">Atividade prática ou Quiz</option>
+                                    <option value="script">Roteiro de vídeo estruturado</option>
+                                    <option value="socialPost">Post para redes sociais</option>
+                                    <option value="flowchart">Fluxograma</option>
+                                    <option value="chart">Gráfico</option>
+                                    <option value="image">Imagem ilustrativa</option>
+                                </select>
+                                <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-500 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                            </div>
+                        </div>
+
+                        <!-- Input Text: Tema -->
+                        <div>
+                            <label for="topic" class="block text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2 ml-1">Tema central do conteúdo</label>
+                            <input id="topic" type="text" placeholder="Ex: Como fazer tal coisa; Nutrição para gestante..." class="w-full bg-brand-bg border border-white/10 rounded-xl p-3.5 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all text-sm" oninput="generatePrompt()" />
+                        </div>
+
+                        <!-- Input Text: Público -->
+                        <div>
+                            <label for="audience" class="block text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2 ml-1">Público-alvo (Para quem é?)</label>
+                            <input id="audience" type="text" placeholder="Ex: Empreendedores iniciantes; Crianças de 10 anos..." class="w-full bg-brand-bg border border-white/10 rounded-xl p-3.5 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all text-sm" oninput="generatePrompt()" />
+                        </div>
+
+                        <!-- Input Text: Persona -->
+                        <div>
+                            <label for="role" class="block text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2 ml-1">Persona da IA (Quem ela deve ser?)</label>
+                            <input id="role" type="text" placeholder="Ex: Professor Universitário, Especialista em Marketing..." class="w-full bg-brand-bg border border-white/10 rounded-xl p-3.5 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all text-sm" oninput="generatePrompt()" />
+                        </div>
+
+                        <!-- Input Select: Formato -->
+                        <div>
+                            <label for="format" class="block text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2 ml-1">Formato de Saída</label>
+                            <div class="relative">
+                                <select id="format" class="w-full bg-brand-bg border border-white/10 rounded-xl p-3.5 text-zinc-100 appearance-none focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all text-sm cursor-pointer" onchange="generatePrompt()">
+                                    <option value="em texto com hierarquia clara">Texto organizado</option>
+                                    <option value="um Carrossel (3 a 8 slides)">Carrossel</option>
+                                    <option value="uma imagem">Imagem</option>
+                                    <option value="um Roteiro de Vídeo">Roteiro de vídeo</option>
+                                    <option value="uma Aula entre 5 e 10 minutos">Aula de 5~10 minutos</option>
+                                    <option value="um Artigo">Artigo</option>
+                                    <option value="uma Legenda para redes sociais">Legenda de conteúdo</option>
+                                    <option value="um E-book">E-book</option>
+                                    <option value="um E-mail">E-mail</option>
+                                    <option value="um arquivo HTML">HTML</option>
+                                </select>
+                                <i data-lucide="chevron-down" class="w-4 h-4 text-zinc-500 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none"></i>
+                            </div>
+                        </div>
+
+                        <!-- Input Text: Objetivo -->
+                        <div>
+                            <label for="objective" class="block text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2 ml-1">Objetivo de Aprendizagem</label>
+                            <input id="objective" type="text" placeholder="Ex: Entender o básico de fluxo de caixa" class="w-full bg-brand-bg border border-white/10 rounded-xl p-3.5 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all text-sm" oninput="generatePrompt()" />
+                        </div>
+
+                        <!-- Input Text: Analogia -->
+                        <div>
+                            <label for="analogy" class="block text-zinc-400 text-xs font-semibold uppercase tracking-wider mb-2 ml-1">Incluir uma analogia (Opcional)</label>
+                            <input id="analogy" type="text" placeholder="Indique uma analogia coerente com o conteúdo" class="w-full bg-brand-bg border border-white/10 rounded-xl p-3.5 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-brand-purple focus:ring-1 focus:ring-brand-purple transition-all text-sm" oninput="generatePrompt()" />
+                        </div>
+                    </div>
+
+                    <button class="w-full bg-brand-hover text-white border border-white/5 py-4 rounded-xl text-sm font-bold hover:bg-white hover:text-black transition-all flex items-center justify-center gap-2 mt-6" onclick="clearFields()">
+                        <i data-lucide="rotate-ccw" class="w-4 h-4"></i> Limpar Campos
+                    </button>
+                </div>
+
+                <!-- COLUNA DIREITA: RESULTADO -->
+                <div class="bg-[#111112] border border-brand-purple/20 rounded-[2rem] p-6 md:p-8 flex flex-col relative shadow-[inset_0_0_60px_rgba(185,131,255,0.03)] h-full min-h-[500px]">
+                    <!-- Brilho de fundo -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-brand-purple/5 blur-[80px] rounded-full pointer-events-none"></div>
+
+                    <div class="flex items-center justify-between mb-6 pb-6 border-b border-white/5 relative z-10">
+                        <div class="flex items-center gap-3">
+                            <span class="flex items-center justify-center w-8 h-8 rounded-full bg-brand-green/10 text-brand-green font-bold text-sm">2</span>
+                            <h3 class="text-xl font-bold text-white">Seu Prompt</h3>
+                        </div>
+                    </div>
+
+                    <textarea id="promptOutput" class="w-full flex-1 bg-transparent border-none text-zinc-300 font-mono text-sm leading-[1.7] resize-none focus:outline-none relative z-10" readonly></textarea>
+                    
+                    <button class="w-full bg-brand-purple text-white py-4 mt-6 rounded-xl text-[15px] font-bold hover:bg-[#a671eb] transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(185,131,255,0.2)] hover:scale-[1.02] relative z-10" onclick="copyGeneratedPrompt()">
+                        <i data-lucide="clipboard-copy" class="w-5 h-5"></i> Copiar Prompt Final
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO: BIBLIOTECA DE EXEMPLOS (Dropdowns) -->
+        <section id="exemplos" class="mt-20 mb-10 scroll-mt-24">
+            <header class="mb-10">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-hover border border-white/5 text-brand-green text-xs font-semibold mb-4 uppercase tracking-wider">
+                    <i data-lucide="library" class="w-3.5 h-3.5"></i>
+                    Biblioteca Prática
+                </div>
+                <h2 class="text-3xl font-bold text-white mb-3">
+                    Exemplos prontos para uso
+                </h2>
+                <p class="text-zinc-400 text-[15px] leading-relaxed">
+                    Explore templates formatados com a estrutura universal. Clique para expandir, copie e substitua as variáveis entre colchetes.
+                </p>
+            </header>
+
+            <div class="space-y-4">
+                
+                <!-- Dropdown 1: Copy para Anúncios -->
+                <div class="bg-brand-card border border-white/5 rounded-2xl overflow-hidden transition-colors hover:border-white/10 group">
+                    <button class="accordion-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none" aria-expanded="false">
+                        <div class="flex items-center gap-4">
+                            <div class="p-2 bg-brand-purple/10 text-brand-purple rounded-lg transition-colors group-hover:bg-brand-purple group-hover:text-white">
+                                <i data-lucide="megaphone" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-white font-semibold text-[17px]">Criar Copy para Anúncios</h3>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-zinc-500 transition-transform duration-300 accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content hidden px-6 pb-6">
+                        <div class="border-t border-white/5 pt-6">
+                            <div class="bg-brand-bg rounded-xl p-5 border border-white/5 shadow-inner">
+                                <div class="flex justify-between items-start mb-4 border-b border-white/5 pb-3">
+                                    <h4 class="text-zinc-500 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">Prompt</h4>
+                                    <button onclick="copyContent('ex-1', this)" class="text-zinc-400 hover:text-white transition-colors p-1 flex items-center gap-1 bg-brand-hover rounded px-2 py-1 text-xs" title="Copiar prompt">
+                                        <i data-lucide="copy" class="w-3.5 h-3.5"></i> <span>Copiar</span>
+                                    </button>
+                                </div>
+                                <div id="ex-1" class="text-zinc-300 font-mono text-sm whitespace-pre-wrap leading-relaxed">Atue como especialista de marketing digital e vendas.
+Crie uma copy para anúncios sobre [produto/serviço].
+Objetivo:
+Aumentar [cliques/conversões/vendas].
+Público:
+[perfil do público]
+Plataforma:
+[Instagram/Facebook/Google/LinkedIn]
+Tom:
+[direto/emocional/estratégico]
+Inclua:
+headline forte
+CTA
+gatilhos mentais
+versões curtas e médias
+Evite:
+[clichês/promessas exageradas]</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dropdown 2: Planejamento Estratégico -->
+                <div class="bg-brand-card border border-white/5 rounded-2xl overflow-hidden transition-colors hover:border-white/10 group">
+                    <button class="accordion-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none" aria-expanded="false">
+                        <div class="flex items-center gap-4">
+                            <div class="p-2 bg-brand-blue/10 text-brand-blue rounded-lg transition-colors group-hover:bg-brand-blue group-hover:text-white">
+                                <i data-lucide="briefcase" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-white font-semibold text-[17px]">Planejamento Estratégico de Negócio</h3>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-zinc-500 transition-transform duration-300 accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content hidden px-6 pb-6">
+                        <div class="border-t border-white/5 pt-6">
+                            <div class="bg-brand-bg rounded-xl p-5 border border-white/5 shadow-inner">
+                                <div class="flex justify-between items-start mb-4 border-b border-white/5 pb-3">
+                                    <h4 class="text-zinc-500 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">Prompt</h4>
+                                    <button onclick="copyContent('ex-2', this)" class="text-zinc-400 hover:text-white transition-colors p-1 flex items-center gap-1 bg-brand-hover rounded px-2 py-1 text-xs" title="Copiar prompt">
+                                        <i data-lucide="copy" class="w-3.5 h-3.5"></i> <span>Copiar</span>
+                                    </button>
+                                </div>
+                                <div id="ex-2" class="text-zinc-300 font-mono text-sm whitespace-pre-wrap leading-relaxed">Atue como estrategista especialista em [mercado desejado]
+Crie um planejamento estratégico para [empresa/projeto].
+Contexto:
+[explique cenário atual]
+Objetivo:
+[meta principal]
+Inclua:
+análise SWOT
+oportunidades
+riscos
+plano de ação
+prioridades
+KPIs
+cronograma
+Formato:
+Organize em tópicos objetivos.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dropdown 3: Criar Calendário de Conteúdo -->
+                <div class="bg-brand-card border border-white/5 rounded-2xl overflow-hidden transition-colors hover:border-white/10 group">
+                    <button class="accordion-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none" aria-expanded="false">
+                        <div class="flex items-center gap-4">
+                            <div class="p-2 bg-brand-cyan/10 text-brand-cyan rounded-lg transition-colors group-hover:bg-brand-cyan group-hover:text-white">
+                                <i data-lucide="calendar-days" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-white font-semibold text-[17px]">Criar Calendário de Conteúdo</h3>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-zinc-500 transition-transform duration-300 accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content hidden px-6 pb-6">
+                        <div class="border-t border-white/5 pt-6">
+                            <div class="bg-brand-bg rounded-xl p-5 border border-white/5 shadow-inner">
+                                <div class="flex justify-between items-start mb-4 border-b border-white/5 pb-3">
+                                    <h4 class="text-zinc-500 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">Prompt</h4>
+                                    <button onclick="copyContent('ex-3', this)" class="text-zinc-400 hover:text-white transition-colors p-1 flex items-center gap-1 bg-brand-hover rounded px-2 py-1 text-xs" title="Copiar prompt">
+                                        <i data-lucide="copy" class="w-3.5 h-3.5"></i> <span>Copiar</span>
+                                    </button>
+                                </div>
+                                <div id="ex-3" class="text-zinc-300 font-mono text-sm whitespace-pre-wrap leading-relaxed">Monte um calendário de conteúdo para [marca/produto].
+Objetivo:
+[aumentar alcance/engajamento/vendas]
+Público:
+[perfil da audiência]
+Plataformas:
+[Instagram/LinkedIn/TikTok/etc.]
+Crie:
+ideias de posts
+formatos
+headlines
+CTA
+frequência ideal
+Período:
+[7 dias/30 dias]</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dropdown 4: Pesquisa com Usuários -->
+                <div class="bg-brand-card border border-white/5 rounded-2xl overflow-hidden transition-colors hover:border-white/10 group">
+                    <button class="accordion-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none" aria-expanded="false">
+                        <div class="flex items-center gap-4">
+                            <div class="p-2 bg-brand-green/10 text-brand-green rounded-lg transition-colors group-hover:bg-brand-green group-hover:text-white">
+                                <i data-lucide="search" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-white font-semibold text-[17px]">Pesquisa com Usuários</h3>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-zinc-500 transition-transform duration-300 accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content hidden px-6 pb-6">
+                        <div class="border-t border-white/5 pt-6">
+                            <div class="bg-brand-bg rounded-xl p-5 border border-white/5 shadow-inner">
+                                <div class="flex justify-between items-start mb-4 border-b border-white/5 pb-3">
+                                    <h4 class="text-zinc-500 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">Prompt</h4>
+                                    <button onclick="copyContent('ex-4', this)" class="text-zinc-400 hover:text-white transition-colors p-1 flex items-center gap-1 bg-brand-hover rounded px-2 py-1 text-xs" title="Copiar prompt">
+                                        <i data-lucide="copy" class="w-3.5 h-3.5"></i> <span>Copiar</span>
+                                    </button>
+                                </div>
+                                <div id="ex-4" class="text-zinc-300 font-mono text-sm whitespace-pre-wrap leading-relaxed">Crie uma pesquisa qualitativa para entender [problema/comportamento].
+Público:
+[perfil do usuário]
+Objetivo:
+Descobrir [dores/necessidades/opiniões].
+Crie:
+perguntas abertas
+perguntas de comportamento
+perguntas de experiência
+perguntas de melhoria
+Formato:
+Organize em roteiro de entrevista.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dropdown 5: Criar Pitch Comercial -->
+                <div class="bg-brand-card border border-white/5 rounded-2xl overflow-hidden transition-colors hover:border-white/10 group">
+                    <button class="accordion-header w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none" aria-expanded="false">
+                        <div class="flex items-center gap-4">
+                            <div class="p-2 bg-brand-yellow/10 text-brand-yellow rounded-lg transition-colors group-hover:bg-brand-yellow group-hover:text-white">
+                                <i data-lucide="mic" class="w-5 h-5"></i>
+                            </div>
+                            <h3 class="text-white font-semibold text-[17px]">Criar Pitch Comercial</h3>
+                        </div>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-zinc-500 transition-transform duration-300 accordion-icon"></i>
+                    </button>
+                    <div class="accordion-content hidden px-6 pb-6">
+                        <div class="border-t border-white/5 pt-6">
+                            <div class="bg-brand-bg rounded-xl p-5 border border-white/5 shadow-inner">
+                                <div class="flex justify-between items-start mb-4 border-b border-white/5 pb-3">
+                                    <h4 class="text-zinc-500 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">Prompt</h4>
+                                    <button onclick="copyContent('ex-5', this)" class="text-zinc-400 hover:text-white transition-colors p-1 flex items-center gap-1 bg-brand-hover rounded px-2 py-1 text-xs" title="Copiar prompt">
+                                        <i data-lucide="copy" class="w-3.5 h-3.5"></i> <span>Copiar</span>
+                                    </button>
+                                </div>
+                                <div id="ex-5" class="text-zinc-300 font-mono text-sm whitespace-pre-wrap leading-relaxed">Crie um pitch comercial para [produto/empresa].
+Objetivo:
+Convencer [cliente/investidor/parceiro].
+Inclua:
+problema
+solução
+diferenciais
+benefícios
+prova social
+proposta de valor
+CTA final
+Tom:
+[executivo/persuasivo/moderno]
+Duração:
+[30 segundos/1 minuto/5 minutos]</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIVISOR E FOOTER DA PÁGINA -->
+        <hr class="border-white/5 mt-10 mb-8">
+        
+        <footer class="flex flex-col items-center justify-center gap-4 text-center pb-8">
+            <p class="text-zinc-600 text-sm">Criado por <span class="text-zinc-400 font-medium">"Cadê o Briefing?"</span> &copy; 2026 Todos os direitos reservados.</p>
+            <div class="flex items-center gap-3">
+                <a href="https://www.linkedin.com/in/karlavizone/" target="_blank" rel="noopener noreferrer" class="p-2.5 bg-brand-card hover:bg-brand-hover border border-white/5 rounded-xl text-zinc-500 hover:text-[#0A66C2] transition-colors" title="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect width="4" height="12" x="2" y="9"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/cadeobriefing/" target="_blank" rel="noopener noreferrer" class="p-2.5 bg-brand-card hover:bg-brand-hover border border-white/5 rounded-xl text-zinc-500 hover:text-[#E1306C] transition-colors" title="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                    </svg>
+                </a>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // Inicializar os ícones
+        lucide.createIcons();
+
+        // Lógica de funcionamento dos Accordions (Dropdowns)
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const icon = header.querySelector('.accordion-icon');
+                const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+                // Fecha todos os outros primeiro (Opcional - Comente as 4 linhas abaixo se quiser permitir múltiplos abertos)
+                document.querySelectorAll('.accordion-content').forEach(c => c.classList.add('hidden'));
+                document.querySelectorAll('.accordion-icon').forEach(i => i.classList.remove('rotate-180'));
+                document.querySelectorAll('.accordion-header').forEach(h => h.setAttribute('aria-expanded', 'false'));
+
+                // Toggle do item clicado
+                if (!isExpanded) {
+                    content.classList.remove('hidden');
+                    icon.classList.add('rotate-180');
+                    header.setAttribute('aria-expanded', 'true');
+                } else {
+                    content.classList.add('hidden');
+                    icon.classList.remove('rotate-180');
+                    header.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // Função para copiar conteúdo de blocos
+        function copyContent(elementId, btnElement) {
+            const content = document.getElementById(elementId).innerText;
+            const originalHTML = btnElement.innerHTML;
+            
+            navigator.clipboard.writeText(content).then(() => {
+                // Estado de sucesso (Verde + Ícone de Check)
+                btnElement.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5"></i> <span class="text-brand-green">Copiado!</span>`;
+                lucide.createIcons();
+                
+                // Volta ao estado original após 2s
+                setTimeout(() => {
+                    btnElement.innerHTML = originalHTML;
+                    lucide.createIcons();
+                }, 2000);
+            }).catch(err => {
+                console.error('Falha ao copiar: ', err);
+                // Fallback caso a API do Clipboard falhe
+                const textArea = document.createElement("textarea");
+                textArea.value = content;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try { document.execCommand('copy'); } catch (err) {}
+                document.body.removeChild(textArea);
+                
+                btnElement.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5"></i> <span class="text-brand-green">Copiado!</span>`;
+                lucide.createIcons();
+                setTimeout(() => {
+                    btnElement.innerHTML = originalHTML;
+                    lucide.createIcons();
+                }, 2000);
+            });
+        }
+
+        // --- LÓGICA DO GERADOR DE PROMPTS ---
+        function generatePrompt() {
+            const taskType = document.getElementById('taskType').value;
+            const topic = document.getElementById('topic').value || '[INSERIR TEMA]';
+            const audience = document.getElementById('audience').value || '[INSERIR PÚBLICO]';
+            const role = document.getElementById('role').value || '[INSERIR PERSONA]';
+            const format = document.getElementById('format').value;
+            const objective = document.getElementById('objective').value || '[INSERIR OBJETIVO]';
+            const analogy = document.getElementById('analogy').value;
+
+            // Trata a instrução condicional da analogia
+            let analogyInstruction = "- Use analogias simples do dia a dia.";
+            if (analogy.trim() !== "") {
+                analogyInstruction = `- É OBRIGATÓRIO basear a explicação/atividade na seguinte analogia: "${analogy}".`;
+            }
+
+            // Variações do Prompt baseadas no Tipo de Tarefa
+            let contextText = "";
+            let specificsText = "";
+
+            if (taskType === 'content') {
+                contextText = `Preciso que você crie um material educativo explicando "${topic}".`;
+                specificsText = `- Desenvolva uma explicação envolvente e didática sobre o tema.
+- Utilize a Taxonomia de Bloom: comece nivelando o conhecimento (lembrar/entender) e termine com algo acionável (aplicar/criar).
+${analogyInstruction}
+- PROIBIDO o uso de jargões técnicos complexos sem uma explicação imediata logo em seguida.
+- O tom de voz deve ser encorajador, confiante e prático.`;
+            } else if (taskType === 'quiz') {
+                contextText = `Preciso que você crie uma atividade prática, exercício de fixação ou quiz para testar o conhecimento sobre "${topic}".`;
+                specificsText = `- Crie perguntas ou desafios focados em cenários práticos que estimulem o pensamento crítico.
+- Inclua um gabarito comentado ao final, explicando detalhadamente por que as alternativas estão certas ou erradas.
+${analogyInstruction}
+- Evite "pegadinhas" injustas. O foco é a fixação do aprendizado, não a memorização decoreba.
+- O tom deve ser de um mentor paciente e avaliativo.`;
+            } else if (taskType === 'script') {
+                contextText = `Preciso que você crie um roteiro estruturado detalhando como apresentar ou gravar um material sobre "${topic}".`;
+                specificsText = `- Divida o roteiro em blocos lógicos de atenção (ex: Gancho forte nos primeiros 3 segundos, Introdução, Desenvolvimento, Clímax e Call to Action).
+- Separe claramente as instruções visuais (o que aparece na tela/ações) do roteiro de áudio (o que o apresentador vai falar).
+- Indique mudanças no tom de voz, pausas dramáticas e ritmo ao longo do texto.
+${analogyInstruction}
+- Mantenha um ritmo altamente dinâmico para reter a atenção da audiência.`;
+            } else if (taskType === 'socialPost') {
+                contextText = `Preciso que você crie um post altamente partilhável e envolvente para redes sociais sobre "${topic}".`;
+                specificsText = `- Comece com um gancho forte (scroll-stopper) nas primeiras linhas para reter a atenção da audiência imediatamente.
+- O texto deve ser altamente escaneável: use parágrafos muito curtos, espaçamento adequado e emojis estrategicamente para ilustrar e não substituir palavras.
+${analogyInstruction}
+- Encerre o post com uma Call to Action (CTA) clara, incentivando os utilizadores a comentar, guardar ou partilhar.
+- O tom deve ser autêntico, apelativo e adaptado à dinâmica rápida das redes sociais.`;
+            } else if (taskType === 'flowchart') {
+                contextText = `Preciso que você crie a estrutura de um fluxograma educativo explicando a lógica e o passo a passo de "${topic}".`;
+                specificsText = `- Organize a informação visualmente em passos sequenciais, usando conectores condicionais (se/então, sim/não).
+- Forneça o conteúdo em formato textual hierárquico (como lista numerada em cascata ou código Mermaid) para que eu possa desenhar a estrutura posteriormente.
+${analogyInstruction}
+- Seja extremamente conciso e direto nas descrições de cada nó ou etapa do fluxo.
+- Destaque claramente o início e o fim do processo.`;
+            } else if (taskType === 'chart') {
+                contextText = `Preciso que você estruture os dados e a narrativa ideais para um gráfico ou infográfico sobre "${topic}".`;
+                specificsText = `- Defina qual é o melhor tipo de gráfico para representar este tema (ex: pizza, barras, linha, dispersão) e explique rapidamente o porquê.
+- Liste os eixos (X e Y) ou as categorias de dados de forma clara, acompanhados de uma breve legenda explicativa.
+${analogyInstruction}
+- O foco absoluto deve ser facilitar a rápida visualização da informação e guiar o aluno até a conclusão principal.
+- Forneça um título chamativo e impactante para o gráfico.`;
+            } else if (taskType === 'image') {
+                contextText = `Preciso que você atue como um diretor de arte e crie um prompt detalhado de geração de imagem para ilustrar o conceito de "${topic}".`;
+                specificsText = `- Descreva o cenário principal, os elementos em cena, a paleta de cores, a iluminação e a atmosfera da imagem de forma rica e visual.
+- A imagem deve servir como um apoio visual forte (Metáfora Visual) para facilitar o aprendizado.
+${analogyInstruction}
+- O resultado deve incluir um prompt em inglês (otimizado para ferramentas como Midjourney, DALL-E ou Stable Diffusion) e uma breve explicação em português de como essa imagem ajuda a ensinar o tema.`;
+            }
+
+            const promptTemplate = `Aja como ${role}. Você possui excelência em design instrucional, aprendizagem acelerada e copywriting claro.
+
+Contexto da Tarefa:
+${contextText}
+O nosso público-alvo é composto por: ${audience}. Eles precisam de clareza absoluta e aplicação prática.
+
+Ação e Específicos:
+${specificsText}
+
+Formato de Entrega:
+Entregue o conteúdo no formato de ${format}.
+Use formatação escaneável (títulos em bold, listas, bullet points e parágrafos curtos) para facilitar a leitura visual do prompt.
+
+Objetivo Final:
+Ao terminar de consumir este material, o leitor deve ser capaz de: ${objective}.
+
+Instrução de Refinamento:
+Antes de me entregar o material finalizado, faça 2 perguntas rápidas de múltipla escolha para mim, para calibrar o nível de profundidade e o foco que você deve dar na sua geração. Aguarde minha resposta para gerar o texto final.`;
+
+            document.getElementById('promptOutput').value = promptTemplate;
+        }
+
+        // Limpar campos
+        function clearFields() {
+            document.getElementById('taskType').selectedIndex = 0;
+            document.getElementById('topic').value = '';
+            document.getElementById('audience').value = '';
+            document.getElementById('role').value = '';
+            document.getElementById('format').selectedIndex = 0;
+            document.getElementById('objective').value = '';
+            document.getElementById('analogy').value = '';
+            generatePrompt();
+        }
+
+        // Copiar o prompt gerado
+        function copyGeneratedPrompt() {
+            const textarea = document.getElementById('promptOutput');
+            const mainBtn = document.getElementById('btnMainCopyGen');
+            
+            textarea.select();
+            textarea.setSelectionRange(0, 99999);
+            
+            navigator.clipboard.writeText(textarea.value).then(() => {
+                // UI Feedback para o botão principal
+                mainBtn.innerHTML = `<i data-lucide="check-circle-2" class="w-5 h-5"></i> Copiado com Sucesso!`;
+                mainBtn.classList.remove('bg-brand-purple', 'hover:bg-[#a671eb]');
+                mainBtn.classList.add('bg-brand-green', 'text-black', 'hover:bg-brand-green');
+                lucide.createIcons();
+                
+                setTimeout(() => {
+                    mainBtn.innerHTML = `<i data-lucide="clipboard-copy" class="w-5 h-5"></i> Copiar Prompt Final`;
+                    mainBtn.classList.add('bg-brand-purple', 'hover:bg-[#a671eb]');
+                    mainBtn.classList.remove('bg-brand-green', 'text-black', 'hover:bg-brand-green');
+                    lucide.createIcons();
+                }, 2500);
+            }).catch(err => {
+                // Fallback
+                try { document.execCommand('copy'); } catch (e) {}
+            });
+        }
+
+        // Gera no carregamento
+        window.addEventListener('DOMContentLoaded', generatePrompt);
+
+    </script>
+</body>
+</html>
